@@ -4,9 +4,8 @@ It is a practice script in my quest for learning Python (and data science).
 
 ### About the game (from Wikipedia):
 2048 was developed by Gabriele Cirulli and was written in JavaScript and CSS. It was released on March 9, 2014 as free
-and open-source software subject to the MIT license. It can be found [here](http://2048game.com/).
+and open-source software subject to the MIT license. It can be found [here](http://2048game.com/).<br>
 
-### Mechanics
 The game is played on a 4×4 grid, with numbered tiles that slide when a player moves them using the four arrow keys.<br>
 Every turn, a new tile will randomly appear in an empty spot on the board with a value of either 2 or 4.<br>
 Tiles slide as far as possible in the chosen direction until they are stopped by either another tile or the edge of
@@ -23,3 +22,11 @@ I used Bokeh for plotting, and Ipython widgets for interaction. The result is ob
 It is just to showcase the capabilities of the notebook and its widgets, and to avoid having to write any javascript
 directly.<br><br>
 After I finished this little project, I came across [this blog post](https://flothesof.github.io/2048-game.html), which features a cleaner python implementation of the logic part for the same game.
+
+### Usage:
+* If using Anaconda, Jupyter Notebook comes pre-installed. The olny 
+* Alternatively, the following are required to make it work:
+** `Jupyter Notebook`
+** `grid.py` file in this repo
+* Fire up the jupyter notebook in the directory where you cloned this repo
+* open the and run the cell. The game board will be generated at the bottom, inside the notebook.
