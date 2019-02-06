@@ -1,16 +1,15 @@
 import random
-from typing import List, Dict, Tuple
 import numpy as np
 
 
 class Grid:
     """Creates a grid of 'rows' by 'columns'"""
 
-    def __init__(self, rows: int, columns: int) -> None:
+    def __init__(self, rows, columns):
         self.r_size = rows
         self.c_size = columns
         # initialize the empty grid as a dict, where keys are tuples of (row_index, column_index)
-        self.grid: Dict[Tuple[int, int], int] = {(r, c): 0 for r in range(self.r_size) for c in range(self.c_size)}
+        self.grid = {(r, c): 0 for r in range(self.r_size) for c in range(self.c_size)}
         self.directions = {
             "right": (self.r_size, self.get_row_coords, self.move_fwd),
             "down": (self.c_size, self.get_column_coords, self.move_fwd),
@@ -23,7 +22,7 @@ class Grid:
         """Returns the grid values as a 2d numpy array."""
         return np.array([v for v in self.grid.values()]).reshape((self.r_size, self.c_size))
 
-    def update_grid(self) -> None:
+    def update_grid(self):
         """Updates grid with some values. (used in debugging)"""
 
         self.grid[(0, 0)] = 16
@@ -47,20 +46,20 @@ class Grid:
         """Returns a list of coordinates of empty tiles."""
         return [k for k, v in self.grid.items() if v == 0]
 
-    def spawn(self) -> None:
+    def spawn(self):
         """Inserts value 2 or 4 at random empty slots on the grid. If no empty tiles, the game is over."""
         empty_coords = self.get_empty()
         self.grid[random.choice(empty_coords)] = random.choices([2, 4], [0.8, 0.2])[0]
 
-    def get_column_coords(self, column_index: int) -> List[Tuple[int, int]]:
+    def get_column_coords(self, column_index):
         """Returns a list of coordinates representing a column on the grid."""
         return [(r, c) for (r, c) in self.grid.keys() if c == column_index]
 
-    def get_row_coords(self, row_index: int) -> List[Tuple[int, int]]:
+    def get_row_coords(self, row_index):
         """Returns a list of coordinates representing a row on the grid."""
         return [(r, c) for (r, c) in self.grid.keys() if r == row_index]
 
-    def move_fwd(self, l: List[Tuple[int, int]]) -> None:
+    def move_fwd(self, line):
         """Iterates from right to left over a given row or column, to move or add to the next available position.
 
         Start with penultimate position. For each non-zero tile, move the value all the way to the right,
@@ -75,26 +74,26 @@ class Grid:
         [2, 2, 2, 2] -> [0, 0, 4, 4]
         """
 
-        curr, last = len(l) - 2, len(l) - 1
+        curr, last = len(line) - 2, len(line) - 1
         while curr >= 0:
-            if self.grid[l[curr]] == 0 and self.grid[l[last]] == 0:  # 0 -> 0
+            if self.grid[line[curr]] == 0 and self.grid[line[last]] == 0:  # 0 -> 0
                 curr -= 1
-            elif self.grid[l[curr]] == 0 and self.grid[l[last]] != 0:  # 0 -> x
+            elif self.grid[line[curr]] == 0 and self.grid[line[last]] != 0:  # 0 -> x
                 curr -= 1
-            elif self.grid[l[curr]] != 0 and self.grid[l[last]] == 0:  # x -> 0
-                self.grid[l[curr]], self.grid[l[last]] = 0, self.grid[l[curr]]
+            elif self.grid[line[curr]] != 0 and self.grid[line[last]] == 0:  # x -> 0
+                self.grid[line[curr]], self.grid[line[last]] = 0, self.grid[line[curr]]
                 curr -= 1
-            elif self.grid[l[curr]] == self.grid[l[last]]:  # x -> x
-                self.score += self.grid[l[curr]]
-                self.grid[l[curr]], self.grid[l[last]] = 0, self.grid[l[curr]] * 2
+            elif self.grid[line[curr]] == self.grid[line[last]]:  # x -> x
+                self.score += self.grid[line[curr]]
+                self.grid[line[curr]], self.grid[line[last]] = 0, self.grid[line[curr]] * 2
                 curr -= 1
                 last -= 1
             else:  # x -> y
-                self.grid[l[curr]], self.grid[l[last - 1]] = 0, self.grid[l[curr]]
+                self.grid[line[curr]], self.grid[line[last - 1]] = 0, self.grid[line[curr]]
                 curr -= 1
                 last -= 1
 
-    def move_bwrd(self, l: List[Tuple[int, int]]) -> None:
+    def move_bwrd(self, line):
         """Iterates from left to right over a given row or column, to move or add to the previous available position.
 
         Start with the second position. For each non-zero tile, move the value all the way to the left, until another
@@ -110,25 +109,25 @@ class Grid:
         """
 
         prev, curr = 0, 1
-        while curr < len(l):
-            if self.grid[l[prev]] == 0 and self.grid[l[curr]] == 0:  # 0 <- 0
+        while curr < len(line):
+            if self.grid[line[prev]] == 0 and self.grid[line[curr]] == 0:  # 0 <- 0
                 curr += 1
-            elif self.grid[l[prev]] == 0 and self.grid[l[curr]] != 0:  # 0 <- x
-                self.grid[l[prev]], self.grid[l[curr]] = self.grid[l[curr]], 0
+            elif self.grid[line[prev]] == 0 and self.grid[line[curr]] != 0:  # 0 <- x
+                self.grid[line[prev]], self.grid[line[curr]] = self.grid[line[curr]], 0
                 curr += 1
-            elif self.grid[l[prev]] != 0 and self.grid[l[curr]] == 0:  # x <- 0
+            elif self.grid[line[prev]] != 0 and self.grid[line[curr]] == 0:  # x <- 0
                 curr += 1
-            elif self.grid[l[prev]] == self.grid[l[curr]]:  # x <- x
-                self.score += self.grid[l[curr]]
-                self.grid[l[prev]], self.grid[l[curr]] = self.grid[l[curr]] * 2, 0
+            elif self.grid[line[prev]] == self.grid[line[curr]]:  # x <- x
+                self.score += self.grid[line[curr]]
+                self.grid[line[prev]], self.grid[line[curr]] = self.grid[line[curr]] * 2, 0
                 curr += 1
                 prev += 1
             else:  # x <- y
-                self.grid[l[curr]], self.grid[l[prev + 1]] = 0, self.grid[l[curr]]
+                self.grid[line[curr]], self.grid[line[prev + 1]] = 0, self.grid[line[curr]]
                 curr += 1
                 prev += 1
 
-    def slide(self, direction: str) -> bool:
+    def slide(self, direction):
         """Slides in the given direction ('right', 'down', 'left', 'up') and returns True if move generated any change.
 
         If 'right' -> applies 'move_fwd()' to each row.
@@ -144,7 +143,7 @@ class Grid:
 
         return self.grid != prior
 
-    def no_equal_neigbours(self, coord: Tuple[int, int]) -> bool:
+    def no_equal_neigbours(self, coord):
         """Checks if given coordinate has no equal neighbours, i.e. no adjacent equal values column-wise or row-wise."""
         r, c = coord
         neighbours_coord = [(r - 1, c) if r - 1 >= 0 else None,
@@ -154,6 +153,6 @@ class Grid:
         neighbours = [self.grid[t] for t in neighbours_coord if t]
         return self.grid[coord] not in neighbours
 
-    def game_over(self) -> bool:
+    def game_over(self):
         """Checks the entire board for no empty tiles and no equal neighbours."""
         return all(self.no_equal_neigbours(k) for k in self.grid.keys()) and not self.get_empty()
