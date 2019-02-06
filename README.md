@@ -35,4 +35,4 @@ After I finished this little project, I came across [this blog post](https://flo
 
 Enjoy :)
 
-![screenshot](screenshot.png)
+![screenshot](screenshot1.png)
