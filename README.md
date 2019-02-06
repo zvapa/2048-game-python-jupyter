@@ -2,9 +2,7 @@
 This is a basic attempt to reproduce the popular game 2048 in a Jupyter Notebook.<br>
 It is a practice script in my quest for learning Python (and data science).<br><br>
 
-<img src="screenshot1.png" height=100>
-
-d![screenshot](screenshot1.png)
+<img src="screenshot1.png" height=500>
 
 ### About the game (from Wikipedia):
 2048 was developed by Gabriele Cirulli and was written in JavaScript and CSS. It was released on March 9, 2014 as free
