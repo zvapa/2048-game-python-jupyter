@@ -29,6 +29,7 @@ After I finished this little project, I came across [this blog post](https://flo
 * If using Anaconda, Jupyter comes pre-installed, as well as `bokeh` which I used for visualization. 
 * Alternatively, to install dependecies manually:
   * `Jupyter Notebook`
+  * `numpy`
   * `bokeh`
   * the file `grid.py` holds the logic and is included in the imports at the top of the notebook. 
 * Fire up the jupyter notebook in the directory where you cloned this repo.
