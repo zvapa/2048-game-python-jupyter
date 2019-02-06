@@ -1,4 +1,5 @@
 # 2048 in Python with Jupyter notebook
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/zvapa/2048-game-python-jupyter.git/master?filepath=play2048.ipynb)<br>
 This is a basic attempt to reproduce the popular game 2048 in a Jupyter Notebook.<br>
 It is a practice script in my quest for learning Python (and data science).<br><br>
 
