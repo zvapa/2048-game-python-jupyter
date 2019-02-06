@@ -11,8 +11,10 @@ The game is played on a 4×4 grid, with numbered tiles that slide when a player 
 Every turn, a new tile will randomly appear in an empty spot on the board with a value of either 2 or 4.<br>
 Tiles slide as far as possible in the chosen direction until they are stopped by either another tile or the edge of
 the grid.<br>
-If two tiles of the same number collide, they will merge into a tile with the sum of their values. The resulting tile cannot merge with another tile again in the same move.<br>
-A scoreboard on the upper-right keeps track of the user's score. The user's score starts at zero, and is incremented whenever two tiles combine, by the value of the new tile.<br>
+If two tiles of the same number collide, they will merge into a tile with the sum of their values.<br>
+The resulting tile cannot merge with another tile again in the same move.<br>
+A scoreboard on the upper-right keeps track of the user's score.<br>
+The user's score starts at zero, and is incremented whenever two tiles combine, by the value of the new tile.<br>
 Traditionally, the game is won when a tile with a value of 2048 appears on the board, but the player can continue to play in order to reach as high a score as possible. Therefore the game ends when the player has no legal moves, ie. there are no empty spaces and no adjacent tiles with the same value on the board.
 
 ### Motivation
