@@ -1,5 +1,4 @@
 # 2048 in Python with Jupyter notebook
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/zvapa/2048-game-python-jupyter.git/master?filepath=play2048.ipynb)<br>
 This is a basic attempt to reproduce the popular game 2048 in a Jupyter Notebook.<br>
 It is a practice script in my quest for learning Python (and data science).<br><br>
 
@@ -20,7 +19,7 @@ The user's score starts at zero, and is incremented whenever two tiles combine, 
 Traditionally, the game is won when a tile with a value of 2048 appears on the board, but the player can continue to play in order to reach as high a score as possible. Therefore the game ends when the player has no legal moves, ie. there are no empty spaces and no adjacent tiles with the same value on the board.
 
 ### Motivation
-I chose the Jupyter (Ipython) Notebook to reproduce this game as a challenge to use an environment that is extremely versatile for data science, but unusual for game development. (Also, I hope it would be playable online, via Binder.)<br>
+I chose the Jupyter (Ipython) Notebook to reproduce this game as a challenge to use an environment that is extremely versatile for data science, but unusual for game development. (Also, I was hoping to make it reproducible via Binder, to be able to play in the browser, but I haven't manage to do that yet.)<br>
 I used Bokeh for plotting, and Ipython widgets for interaction. The result is obviously not as sleek as the original, as it lacks the smooth transition of tiles and all the CSS embroidery, and it uses the mouse to click 'action' buttons instead of moving with the arrow keys. Also, there is no high score feature.<br>
 It is just to showcase the capabilities of the notebook and its widgets (avoiding to write any javascript directly.<br><br>
 
