@@ -20,7 +20,7 @@ Traditionally, the game is won when a tile with a value of 2048 appears on the b
 
 ### Motivation
 I chose the Jupyter (Ipython) Notebook to reproduce this game as a challenge to use an environment that is extremely versatile for data science, but unusual to development games on. (Also, I hope it would be playable online, via Binder.)<br>
-I used Bokeh for plotting, and Ipython widgets for interaction. The result is obviously not as sleek as the original, as it lacks the smooth transition of tiles and all the CSS embroidery, and it uses the mouse to click 'action' buttons instead of moving with the arrow keys. Also, there is no  <br>
+I used Bokeh for plotting, and Ipython widgets for interaction. The result is obviously not as sleek as the original, as it lacks the smooth transition of tiles and all the CSS embroidery, and it uses the mouse to click 'action' buttons instead of moving with the arrow keys. Also, there is no high score feature.<br>
 It is just to showcase the capabilities of the notebook and its widgets, and to avoid having to write any javascript
 directly.<br><br>
 After I finished this little project, I came across [this blog post](https://flothesof.github.io/2048-game.html), which features a cleaner python implementation of the logic part for the same game.
