@@ -18,15 +18,19 @@ Traditionally, the game is won when a tile with a value of 2048 appears on the b
 
 ### Motivation
 I chose the Jupyter (Ipython) Notebook to reproduce this game as a challenge to use an environment that is extremely versatile for data science, but unusual to development games on. (Also, I hope it would be playable online, via Binder.)<br>
-I used Bokeh for plotting, and Ipython widgets for interaction. The result is obviously not as sleek as the original, as it lacks the smooth transition of tiles and all the CSS embroidery, and it uses the mouse to click 'action' buttons instead of moving with the arrow keys.<br>
+I used Bokeh for plotting, and Ipython widgets for interaction. The result is obviously not as sleek as the original, as it lacks the smooth transition of tiles and all the CSS embroidery, and it uses the mouse to click 'action' buttons instead of moving with the arrow keys. Also, there is no  <br>
 It is just to showcase the capabilities of the notebook and its widgets, and to avoid having to write any javascript
 directly.<br><br>
 After I finished this little project, I came across [this blog post](https://flothesof.github.io/2048-game.html), which features a cleaner python implementation of the logic part for the same game.
 
 ### Usage:
-* If using Anaconda, Jupyter Notebook comes pre-installed, as well as `bokeh` which I used for visualization. The olny additional dependency is the `grid.py` file in this repo which holds the logic.
-* Alternatively, the following are required to make it work:
+* If using Anaconda, Jupyter comes pre-installed, as well as `bokeh` which I used for visualization. 
+* Alternatively, to install dependecies manually:
   * `Jupyter Notebook`
-  * `grid.py` file in this repo
-* Fire up the jupyter notebook in the directory where you cloned this repo
-* open the and run the cell. The game board will be generated at the bottom, inside the notebook.
+  * `bokeh`
+  * the file `grid.py` holds the logic and is imported at the top of the notebook. 
+* Fire up the jupyter notebook in the directory where you cloned this repo.
+* Open the `play2048` file and run the cells. The game board will be generated at the bottom, inside the notebook.
+* Click on the button widgets to play.
+
+Enjoy :)
