@@ -2,6 +2,8 @@
 This is a basic attempt to reproduce the popular game 2048 in a Jupyter Notebook.<br>
 It is a practice script in my quest for learning Python (and data science).
 
+![screenshot](screenshot1.png)
+
 ### About the game (from Wikipedia):
 2048 was developed by Gabriele Cirulli and was written in JavaScript and CSS. It was released on March 9, 2014 as free
 and open-source software subject to the MIT license. It can be found [here](http://2048game.com/).<br>
@@ -34,5 +36,3 @@ After I finished this little project, I came across [this blog post](https://flo
 * Click on the button widgets to play.
 
 Enjoy :)
-
-![screenshot](screenshot1.png)
