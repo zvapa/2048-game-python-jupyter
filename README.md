@@ -28,7 +28,7 @@ After I finished this little project, I came across [this blog post](https://flo
 * Alternatively, to install dependecies manually:
   * `Jupyter Notebook`
   * `bokeh`
-  * the file `grid.py` holds the logic and is imported at the top of the notebook. 
+  * the file `grid.py` holds the logic and is included in the imports at the top of the notebook. 
 * Fire up the jupyter notebook in the directory where you cloned this repo.
 * Open the `play2048` file and run the cells. The game board will be generated at the bottom, inside the notebook.
 * Click on the button widgets to play.
