@@ -24,9 +24,9 @@ directly.<br><br>
 After I finished this little project, I came across [this blog post](https://flothesof.github.io/2048-game.html), which features a cleaner python implementation of the logic part for the same game.
 
 ### Usage:
-* If using Anaconda, Jupyter Notebook comes pre-installed. The olny 
+* If using Anaconda, Jupyter Notebook comes pre-installed, as well as `bokeh` which I used for visualization. The olny additional dependency is the `grid.py` file in this repo which holds the logic.
 * Alternatively, the following are required to make it work:
-** `Jupyter Notebook`
-** `grid.py` file in this repo
+ * `Jupyter Notebook`
+ * `grid.py` file in this repo
 * Fire up the jupyter notebook in the directory where you cloned this repo
 * open the and run the cell. The game board will be generated at the bottom, inside the notebook.
