@@ -1,6 +1,7 @@
-## 2048 in Python with Jupyter notebook
+# 2048 in Python with Jupyter notebook
 This is a basic attempt to reproduce the popular game 2048 in a Jupyter Notebook.<br>
 It is a practice script in my quest for learning Python (and data science).
+
 
 ![screenshot](screenshot1.png)
 
